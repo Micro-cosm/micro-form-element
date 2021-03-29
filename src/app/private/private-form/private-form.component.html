@@ -1,0 +1,26 @@
+
+<div class="cms-flexy" *ngIf="beforeRows$;then formHeader else emptyFormHeader"></div>
+<ng-template #formHeader>
+	<div  *ngFor="let beforeRow of beforeRows$ | async">
+		<div [outerHTML]="beforeRow.value"></div>
+	</div>
+</ng-template>
+<ng-template #emptyFormHeader>
+	<div style="display: block"></div>
+</ng-template>
+
+
+<div>
+	<iframe [src]="cleanUrl"></iframe>
+</div>
+
+
+<div class="cms-flexy" *ngIf="afterRows$;then formFooter else emptyFormFooter"></div>
+<ng-template #formFooter>
+	<div *ngFor="let afterRow of afterRows$ | async">
+		<div [outerHTML]="afterRow.value"></div>
+	</div>
+</ng-template>
+<ng-template #emptyFormFooter>
+	<div style="display: block"></div>
+</ng-template>
