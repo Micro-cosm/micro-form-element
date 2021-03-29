@@ -18,10 +18,10 @@ import { NgxAuthFirebaseUIModule	} from 'ngx-auth-firebaseui';														// A
 import { LoggedOutComponent			} from './logged-out/logged-out.component';											// AUTH
 import { LoginComponent				} from './login/login.component';													// AUTH
 import { GraphQLModule				} from './sub-modules/graphql.module';												// AUTH
+import { CUSTOM_ELEMENTS_SCHEMA		} from '@angular/core';																// ELEMENT SUPPORT
 import { CmsService					} from './_services/cms.service';													// DYNAMIC CONTENT
 import { NavPipe					} from './_pipes/nav.pipe';															// DYNAMIC CONTENT
 import { SafePipe					} from './_pipes/safe.pipe';														// DYNAMIC CONTENT
-import { CUSTOM_ELEMENTS_SCHEMA		} from '@angular/core';																// ELEMENT SUPPORT
 import { MaterialModule				} from './sub-modules/material.module';												// ELEMENT SUPPORT
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CUSTOM
 import { PrivateComponent			} from './private/private.component';												// COMPONENTS
@@ -50,19 +50,19 @@ export function firebaseAppNameFactory() { return `weja-us`; }
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		BrowserModule,
-		CdkTableModule,
-		CdkTreeModule,
-		FlexLayoutModule,
-		GraphQLModule,
 		HttpClientModule,
 		AngularFireModule.initializeApp( environment.firebase.creds ),
 		NgxAuthFirebaseUIModule.forRoot( environment.firebase.creds, firebaseAppNameFactory, environment.firebase.configs ),
+		FlexLayoutModule,
+		CdkTableModule,
+		CdkTreeModule,
+		GraphQLModule,
 		MaterialModule
 	],
 	providers: [
 		{ provide: 'googleTagManagerId',	useValue: environment.google.analytics.trackingCode },
+		Title,
 		CmsService,
-		Title
 	],
 	schemas:	[CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap:	[AppComponent]

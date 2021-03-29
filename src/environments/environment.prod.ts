@@ -52,11 +52,12 @@ const	CMS_SHEET 			= process.env.CMS_SHEET 			|| 'https://docs.google.com/spread
 	
 //  MORE FREQUENT --  CUSTOM DEVELOPMENT/INTEGRATION
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	THIS MIFE
-const FORM_SERVICE		= process.env.FORM_SERVICE		|| FORM_LOCAL_SERVICE;
+const THIS_SERVICE		= process.env.FORM_SERVICE		|| FORM_REMOTE_SERVICE;
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	OTHER MIFEN
 const AUTH_SERVICE		= process.env.AUTH_SERVICE		|| AUTH_REMOTE_SERVICE;
 const CMS_SERVICE		= process.env.CMS_SERVICE		|| CMS_REMOTE_SERVICE;
 const CHAT_SERVICE		= process.env.CHAT_SERVICE		|| CHAT_REMOTE_SERVICE;
+const FORM_SERVICE		= process.env.FORM_SERVICE		|| THIS_SERVICE;
 const PRIVATE_SERVICE	= process.env.PRIVATE_SERVICE	|| PRIVATE_REMOTE_SERVICE;
 const PUBLIC_SERVICE	= process.env.PUBLIC_SERVICE	|| PUBLIC_REMOTE_SERVICE;
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	REGISTERED FORMS
@@ -67,7 +68,7 @@ const FORM_FEEDBACK		= process.env.FORM_FEEBACK		|| 'vIKRhjtU';
 
 export const environment = {
 	production:	Boolean( TARGET_ALIAS	=== 'prod' ),
-	this:		{ nickname: THIS_NICKNAME,	service: FORM_SERVICE, title: THIS_TITLE },
+	this:		{ nickname: THIS_NICKNAME,	service: THIS_SERVICE, title: THIS_TITLE },
 	target:		{ alias:	TARGET_ALIAS,	domain: TARGET_DOMAIN, realm: TARGET_REALM, remote: TARGET_REMOTE_REALM },
 	realm:		{ base:		TARGET_REMOTE_REALM_BASE },
 	assets:		{ bucket:	ASSETS_BUCKET },

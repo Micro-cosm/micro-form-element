@@ -52,11 +52,12 @@ const	CMS_SHEET 			= process.env.CMS_SHEET 			|| 'https://docs.google.com/spread
 	
 //  MORE FREQUENT --  CUSTOM DEVELOPMENT/INTEGRATION
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	THIS MIFE
-const FORM_SERVICE		= process.env.FORM_SERVICE		|| FORM_LOCAL_SERVICE;
+const THIS_SERVICE		= process.env.FORM_SERVICE		|| FORM_LOCAL_SERVICE;
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	OTHER MIFEN
 const AUTH_SERVICE		= process.env.AUTH_SERVICE		|| AUTH_REMOTE_SERVICE;
 const CMS_SERVICE		= process.env.CMS_SERVICE		|| CMS_REMOTE_SERVICE;
 const CHAT_SERVICE		= process.env.CHAT_SERVICE		|| CHAT_REMOTE_SERVICE;
+const FORM_SERVICE		= process.env.FORM_SERVICE		|| THIS_SERVICE;
 const PRIVATE_SERVICE	= process.env.PRIVATE_SERVICE	|| PRIVATE_REMOTE_SERVICE;
 const PUBLIC_SERVICE	= process.env.PUBLIC_SERVICE	|| PUBLIC_REMOTE_SERVICE;
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	REGISTERED FORMS
@@ -115,20 +116,5 @@ export const environment = {
 	logs:	Boolean( LOGS	=== 'true' ),
 	timeZone: 'America/Denver'
 };
-
-/**
- * How to use angular-server-side-configuration:
- *
- * Use process.env.NAME_OF_YOUR_ENVIRONMENT_VARIABLE
- *
- * export const environment = {
- *   stringValue: process.env.STRING_VALUE,
- *   stringValueWithDefault: process.env.STRING_VALUE || 'defaultValue',
- *   numberValue: Number(process.env.NUMBER_VALUE),
- *   numberValueWithDefault: Number(process.env.NUMBER_VALUE || 10),
- *   booleanValue: Boolean(process.env.BOOLEAN_VALUE),
- *   booleanValueInverted: process.env.BOOLEAN_VALUE_INVERTED !== 'false',
- * };
- */
 
 import 'zone.js/dist/zone-error'; // Included with Angular CLI.
